@@ -25,7 +25,7 @@ Sistem pencarian dan pemesanan kos berbasis web yang dilengkapi fitur perbanding
   - Harga
   - Fasilitas
   - Lokasi
-  - Rating  
+  - Rating
 👉 Membantu user mengambil keputusan lebih cepat tanpa buka banyak halaman
 
 ## 🛠️ Tech Stack
@@ -55,8 +55,6 @@ Relasi:
 ## 👨‍👩‍👧‍👦 Tim Pengembang
 
 **Team Tahu Aci**
-
-## 👨‍👩‍👧‍👦 Tim Pengembang
 
 1. Davis Arvaputra Dwiansyah	(103122400034)
 2. Daffa Aufany Febrianto (103122400029) 
