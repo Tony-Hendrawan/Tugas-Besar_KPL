@@ -25,7 +25,7 @@ Sistem pencarian dan pemesanan kos berbasis web yang dilengkapi fitur perbanding
   - Harga
   - Fasilitas
   - Lokasi
-  - Rating
+  - Rating 
 👉 Membantu user mengambil keputusan lebih cepat tanpa buka banyak halaman
 
 ## 🛠️ Tech Stack
