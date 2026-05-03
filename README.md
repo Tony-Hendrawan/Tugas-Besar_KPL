@@ -106,7 +106,7 @@ Fitur:
 
 ## Tech Stack
 
-* Frontend: HTML, CSS, JavaScript
+* Frontend: HTML, CSS, JavaScript (TypeScript)
 * Backend: Node.js (Express.js)
 * Database: MySQL
 * Tools: GitHub, Postman, Jest
