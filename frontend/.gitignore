@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 node_modules/
+=======
+node_modules/
+package.json
+package-lock.json
+tsconfig.json
+>>>>>>> 2800e65 (feat: implementasi halaman utama, detail kos, dan wishlist)
