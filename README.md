@@ -27,28 +27,16 @@ Fitur:
 * Registrasi dan login
 * Pencarian kos berdasarkan lokasi, harga, dan fasilitas
 * Melihat detail kos (foto, fasilitas, harga, deskripsi)
-* Menyimpan kos (wishlist)
+* Menyimpan kos (wishlist) — harus login terlebih dahulu
 * Membandingkan beberapa kos (compare)
 * Mendapatkan rekomendasi kos
+* Melihat estimasi biaya hidup
 * Melakukan booking
 * Melihat riwayat booking
 
 ---
 
-### Pemilik Kos (Owner)
 
-Pengguna yang mengelola dan menawarkan kos.
-
-Fitur:
-
-* Registrasi dan login
-* Menambahkan data kos
-* Mengelola data kos (edit informasi, harga, fasilitas, dan foto)
-* Melihat daftar booking
-* Mengelola status booking (pending, confirmed, completed, cancelled)
-* Melihat statistik sederhana (jumlah booking, kos yang diminati)
-
----
 
 ## Fitur Utama
 
@@ -69,6 +57,7 @@ Fitur:
   * Fasilitas
   * Lokasi
   * Rating
+
 * Menyediakan rekomendasi kos terbaik
 
 ---
@@ -81,6 +70,7 @@ Fitur:
   * Listrik
   * Air
   * Internet
+
 * Menyajikan total estimasi pengeluaran
 
 ---
@@ -95,21 +85,29 @@ Fitur:
 
 ---
 
+### Wishlist
+
+* Menyimpan kos favorit (harus login)
+* Melihat daftar kos yang disimpan
+* Menghapus kos dari wishlist
+
+---
+
 ### Status Booking
 
 * Mengatur alur status booking:
 
-  * Pending → Confirmed → Completed
-  * Pending → Cancelled
+  * Pending → Dikonfirmasi → Selesai
+  * Pending → Dibatalkan
 
 ---
 
 ## Tech Stack
 
-* Frontend: HTML, CSS, JavaScript
+* Frontend: HTML, CSS, TypeScript
 * Backend: TypeScript, Node.js (Express.js)
-* Database: MySQL
-* Tools: GitHub, Postman, Jest
+* Database: PostgreSQL (Supabase)
+* Tools: GitHub, Postman
 
 ---
 
@@ -119,15 +117,24 @@ Fitur:
 
 * User
 * Kos
+* Kamar_Kos
 * Fasilitas
-* Booking
+* Pemesanan
+* Pembayaran
+* Ulasan
+* Riwayat
+* Wishlist
 
 ### Relasi:
 
-* User dapat melakukan booking
-* Kos memiliki banyak fasilitas
-* Pemilik kos mengelola banyak kos
-* Booking menghubungkan User dengan Kos
+* User dapat melakukan pemesanan kos (1:N)
+* User dapat menyimpan kos ke wishlist (1:N)
+* User dapat memberikan ulasan pada kos (1:N)
+* Kos memiliki banyak kamar (1:N)
+* Setiap kamar memiliki fasilitas (1:1)
+* Pemesanan memiliki satu pembayaran (1:1)
+* Pemesanan dapat memiliki satu ulasan (1:1)
+* Riwayat mencatat pemesanan yang telah selesai
 
 ---
 
@@ -152,39 +159,58 @@ Setiap anggota tim menerapkan dua teknik konstruksi perangkat lunak sesuai denga
 
 Digunakan untuk komunikasi antara frontend dan backend, seperti endpoint:
 
-* GET /kos
-* POST /booking
-* POST /login
+* GET /api/kos
+* GET /api/kos/:id
+* POST /api/auth/login
+* POST /api/auth/register
+* POST /api/booking
+* POST /api/compare
 
 ---
 
 #### Runtime Configuration
 
-Digunakan untuk pengaturan sistem yang dapat diubah tanpa mengubah kode, seperti konfigurasi port server, koneksi database, dan environment variables.
+Digunakan untuk pengaturan sistem yang dapat diubah tanpa mengubah kode, seperti konfigurasi port server, koneksi database, dan JWT secret melalui environment variables.
 
 ---
 
 #### Code Reuse / Library
 
-Digunakan untuk meningkatkan efisiensi pengembangan melalui penggunaan ulang kode, seperti helper function, middleware, serta pemanfaatan library seperti Express.js.
+Digunakan untuk meningkatkan efisiensi pengembangan melalui penggunaan ulang kode, seperti helper function (sendSuccess, sendError, validateRequired, formatCurrency, sanitizeInput), middleware (authenticate), serta pemanfaatan library seperti Express.js dan bcryptjs.
+
 
 ---
 
 #### Table-driven Construction
 
-Digunakan dalam pengolahan data berbasis tabel atau mapping, seperti pemetaan fasilitas dan penyajian data pada fitur perbandingan kos.
+Digunakan dalam pengolahan data berbasis tabel atau mapping. Kolom perbandingan kos didefinisikan sebagai array konfigurasi (COMPARE_FIELDS), sehingga untuk menambah kolom baru cukup tambah satu entry tanpa mengubah logika.
+
 
 ---
 
 #### Automata
 
-Digunakan untuk mengatur alur status booking secara terstruktur agar perubahan status mengikuti urutan yang valid.
+Digunakan untuk mengatur alur status pemesanan secara terstruktur menggunakan Finite State Machine (FSM). Transisi yang valid: Pending → Confirmed → Completed, Pending → Cancelled. Transisi yang tidak valid akan ditolak.
 
 ---
 
 #### Parameterization / Generics
 
-Digunakan untuk membuat fungsi yang bersifat fleksibel dan reusable, khususnya dalam pengolahan data dengan tipe yang berbeda.
+Digunakan untuk membuat fungsi yang bersifat fleksibel dan reusable dengan TypeScript Generics, seperti query<T>() untuk database query dan sendSuccess<T>() untuk response, sehingga bisa dipakai untuk tipe data apapun.
+
+---
+
+## Testing
+
+### API Testing (Postman)
+
+Collection Postman tersedia di `docs/GoletKos.postman_collection.json`.
+
+Endpoint yang ditest:
+* Auth: Register, Login
+* Kos: List, Detail, Compare
+* Booking: Create, History
+* Features: Estimation, Recommendation, Wishlist
 
 ---
 
@@ -196,7 +222,7 @@ GoletKos dikembangkan untuk:
 * Mengurangi kompleksitas dalam memilih kos
 * Menyediakan fitur perbandingan yang informatif
 * Mendukung pengambilan keputusan secara cepat dan tepat
-* Menyediakan platform bagi pemilik kos untuk mengelola properti mereka
+* Menyediakan platform pencarian kos yang mudah digunakan
 
 ---
 
@@ -208,7 +234,7 @@ Dalam tahap pengembangan sebagai bagian dari Tugas Besar Konstruksi Perangkat Lu
 
 ## Tim Pengembang
 
-* [Davis : 103122400034 
+* Davis : 103122400034 
 * Daffa : 103122400029
 * Rafael: 103122400015
 * Tony  : 103122400021
@@ -217,4 +243,4 @@ Dalam tahap pengembangan sebagai bagian dari Tugas Besar Konstruksi Perangkat Lu
 
 ## Lisensi
 
-Proyek ini dikembangkan untuk kebutuhan wajib tugas mata kuliah.
+Proyek ini dikembangkan untuk kebutuhan wajib tugas mata kuliah Kontruksi Perangkat Lunak.
