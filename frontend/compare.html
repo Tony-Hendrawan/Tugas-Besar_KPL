@@ -1,159 +1,68 @@
 <!doctype html>
 <html lang="id">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Bandingkan Kos — GoletKos</title>
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/compare.css" />
-        <link rel="icon" href="images/search.png" type="image/png" />
-    </head>
-    <body>
-        <nav class="navbar">
-            <div class="navbar-container">
-                <a href="index.html" class="navbar-brand"
-                    ><img src="images/logo.png" alt="GoletKos Logo" /><span
-                        class="navbar-brand-text"
-                        >GoletKos</span
-                    ></a
-                >
-                <button
-                    class="navbar-toggle"
-                    id="navbarToggle"
-                    aria-label="Toggle navigation"
-                >
-                    ☰
-                </button>
-                <div class="navbar-menu" id="navbarMenu">
-                    <ul class="navbar-links">
-                        <li>
-                            <a href="index.html" class="nav-link">Beranda</a>
-                        </li>
-                        <li>
-                            <a href="kos-list.html" class="nav-link"
-                                >Cari Kos</a
-                            >
-                        </li>
-                        <li>
-                            <a href="compare.html" class="nav-link active"
-                                >Bandingkan</a
-                            >
-                        </li>
-                    </ul>
-                    <div style="display: flex; gap: 0.5rem">
-                        <a
-                            href="login.html"
-                            class="btn-outline"
-                            style="padding: 0.5rem 1.25rem"
-                            >Masuk</a
-                        ><a
-                            href="register.html"
-                            class="btn-primary"
-                            style="padding: 0.5rem 1.25rem"
-                            >Daftar</a
-                        >
-                    </div>
-                </div>
-            </div>
-        </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bandingkan Kos — GoletKos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/compare.css">
+  <link rel="icon" href="images/search.png" type="image/png">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="GoletKos Logo"><span class="navbar-brand-text">GoletKos</span></a>
+      <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+      <div class="navbar-menu" id="navbarMenu">
+        <ul class="navbar-links">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="kos-list.html" class="nav-link">Cari Kos</a></li>
+          <li><a href="compare.html" class="nav-link active">Bandingkan</a></li>
+        </ul>
+        <div style="display:flex;gap:0.5rem;">
+          <a href="login.html" class="btn-outline" style="padding:0.5rem 1.25rem;">Masuk</a>
+          <a href="register.html" class="btn-primary" style="padding:0.5rem 1.25rem;">Daftar</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-        <main class="section" id="comparePage">
-            <div class="section-container">
-                <div class="section-header">
-                    <h1 class="section-title">Bandingkan Kos</h1>
-                    <p class="section-subtitle">
-                        Pilih 2–3 kos untuk dibandingkan
-                    </p>
-                </div>
+  <main class="section" id="comparePage">
+    <div class="section-container">
+      <div class="section-header">
+        <h1 class="section-title">Bandingkan Kos</h1>
+        <p class="section-subtitle">Pilih 2–3 kos untuk dibandingkan</p>
+      </div>
 
-                <!-- Estimasi Biaya Hidup -->
-                <div
-                    id="estimationSection"
-                    style="
-                        background: var(--white);
-                        border: 1px solid var(--gray-200);
-                        border-radius: 8px;
-                        padding: 1.5rem;
-                        margin-bottom: 2rem;
-                    "
-                >
-                    <h3
-                        style="
-                            font-size: 1.125rem;
-                            font-weight: 600;
-                            margin-bottom: 1rem;
-                        "
-                    >
-                        Estimasi Biaya Hidup Bulanan
-                    </h3>
-                    <form
-                        id="estimationForm"
-                        style="
-                            display: grid;
-                            grid-template-columns: 1fr auto;
-                            gap: 1rem;
-                            align-items: end;
-                        "
-                    >
-                        <div class="form-group">
-                            <label class="form-label" for="budgetInput"
-                                >Budget Kos per Bulan (Rp)</label
-                            >
-                            <input
-                                class="form-input"
-                                type="number"
-                                id="budgetInput"
-                                placeholder="Contoh: 1000000"
-                                min="0"
-                            />
-                        </div>
-                        <button type="submit" class="btn-search">
-                            Hitung Estimasi
-                        </button>
-                    </form>
-                    <div
-                        id="estimationResult"
-                        style="margin-top: 1rem; display: none"
-                    ></div>
-                </div>
+      <!-- Estimasi Biaya Hidup -->
+      <div id="estimationSection" style="background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:1.5rem;margin-bottom:2rem;">
+        <h3 style="font-size:1.125rem;font-weight:600;margin-bottom:1rem;">Estimasi Biaya Hidup Bulanan</h3>
+        <form id="estimationForm" style="display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:end;">
+          <div class="form-group">
+            <label class="form-label" for="budgetInput">Budget Kos per Bulan (Rp)</label>
+            <input class="form-input" type="number" id="budgetInput" placeholder="Contoh: 1000000" min="0">
+          </div>
+          <button type="submit" class="btn-search">Hitung Estimasi</button>
+        </form>
+        <div id="estimationResult" style="margin-top:1rem;display:none;"></div>
+      </div>
 
-                <div id="compareSelected" class="compare-selected"></div>
-                <div class="compare-actions">
-                    <a href="kos-list.html" class="btn-outline">+ Tambah Kos</a>
-                    <button
-                        class="btn-primary"
-                        id="btnClearAll"
-                        style="
-                            background: var(--danger);
-                            border-color: var(--danger);
-                        "
-                    >
-                        Hapus Semua
-                    </button>
-                </div>
-                <div id="compareNotice" class="compare-notice">
-                    <p>
-                        Pilih minimal 2 kos dari
-                        <a href="kos-list.html">daftar kos</a> untuk mulai
-                        membandingkan.
-                    </p>
-                </div>
-                <div id="compareTableWrap"></div>
-                <div id="decisionScore"></div>
-            </div>
-        </main>
+      <div id="compareSelected" class="compare-selected"></div>
+      <div class="compare-actions">
+        <a href="kos-list.html" class="btn-outline">+ Tambah Kos</a>
+        <button class="btn-primary" id="btnClearAll" style="background:var(--danger);border-color:var(--danger);">Hapus Semua</button>
+      </div>
+      <div id="compareNotice" class="compare-notice"><p>Pilih minimal 2 kos dari <a href="kos-list.html">daftar kos</a> untuk mulai membandingkan.</p></div>
+      <div id="compareTableWrap"></div>
+      <div id="decisionScore"></div>
+    </div>
+  </main>
 
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-bottom">
-                    <p>&copy; 2026 GoletKos. All rights reserved.</p>
-                </div>
-            </div>
-        </footer>
+  <footer class="footer"><div class="footer-container"><div class="footer-bottom"><p>&copy; 2026 GoletKos. All rights reserved.</p></div></div></footer>
 
-        <script src="js/utils.ts"></script>
-        <script src="js/api.ts"></script>
-        <script src="js/auth.ts"></script>
-        <script src="js/compare.ts"></script>
-    </body>
+  <script src="js/utils.ts"></script>
+  <script src="js/api.ts"></script>
+  <script src="js/auth.ts"></script>
+  <script src="js/compare.ts"></script>
+</body>
 </html>
