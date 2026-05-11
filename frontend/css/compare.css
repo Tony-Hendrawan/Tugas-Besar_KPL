@@ -1,0 +1,21 @@
+/**
+ * compare.css - Styles for compare page
+ */
+
+.compare-selected { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.compare-selected__item { background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; padding: 1rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.compare-selected__name { font-weight: 600; color: var(--gray-900); flex: 1; }
+.compare-selected__remove { background: var(--danger); color: var(--white); border: none; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.25rem; line-height: 1; transition: all 0.2s; }
+.compare-selected__remove:hover { background: #c53030; transform: scale(1.1); }
+.compare-actions { display: flex; gap: 1rem; margin-bottom: 2rem; justify-content: center; flex-wrap: wrap; }
+.compare-notice { background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: 8px; padding: 2rem; text-align: center; color: var(--gray-600); }
+.compare-notice a { color: var(--primary); font-weight: 600; text-decoration: none; }
+.compare-notice a:hover { text-decoration: underline; }
+.compare-table { background: var(--white); border: 1px solid var(--gray-200); border-radius: 12px; overflow: hidden; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.compare-table table { width: 100%; border-collapse: collapse; }
+.compare-table th, .compare-table td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--gray-200); }
+.compare-table thead th { background: var(--primary); color: var(--white); font-weight: 600; text-align: center; }
+.compare-table tbody th { background: var(--gray-50); font-weight: 600; color: var(--gray-900); width: 200px; }
+.compare-table tbody td { color: var(--gray-700); text-align: center; }
+.decision-score { background: var(--white); border: 1px solid var(--gray-200); border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.decision-score h3 { font-size: 1.25rem; font-weight: 600; color: var(--gray-900); margin-bottom: 1rem; }
