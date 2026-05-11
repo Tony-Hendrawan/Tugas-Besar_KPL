@@ -1,6 +1,4 @@
 // @ts-nocheck
-
-
 /**
  * frontend/js/compare.ts
  * TEKNIK: Table-driven Construction — compare page logic

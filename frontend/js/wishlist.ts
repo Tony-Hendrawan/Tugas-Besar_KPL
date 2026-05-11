@@ -1,3 +1,9 @@
+// @ts-nocheck
+/**
+ * frontend/js/wishlist.ts
+ * Halaman wishlist — harus login
+ */
+
 var wishlistEl = document.getElementById('wishlistContent');
 if (wishlistEl) {
     requireAuth();

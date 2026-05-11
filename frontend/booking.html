@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Booking Kos — GoletKos</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/kos.css" />
+        <link rel="icon" href="images/search.png" type="image/png" />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="index.html" class="navbar-brand"
+                    ><img src="images/logo.png" alt="GoletKos Logo" /><span
+                        class="navbar-brand-text"
+                        >GoletKos</span
+                    ></a
+                >
+                <button
+                    class="navbar-toggle"
+                    id="navbarToggle"
+                    aria-label="Toggle navigation"
+                >
+                    ☰
+                </button>
+                <div class="navbar-menu" id="navbarMenu">
+                    <ul class="navbar-links">
+                        <li>
+                            <a href="index.html" class="nav-link">Beranda</a>
+                        </li>
+                        <li>
+                            <a href="kos-list.html" class="nav-link"
+                                >Cari Kos</a
+                            >
+                        </li>
+                        <li>
+                            <a href="compare.html" class="nav-link"
+                                >Bandingkan</a
+                            >
+                        </li>
+                    </ul>
+                    <div style="display: flex; gap: 0.5rem">
+                        <a
+                            href="login.html"
+                            class="btn-outline"
+                            style="padding: 0.5rem 1.25rem"
+                            >Masuk</a
+                        ><a
+                            href="register.html"
+                            class="btn-primary"
+                            style="padding: 0.5rem 1.25rem"
+                            >Daftar</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="section">
+            <div class="section-container">
+                <div class="booking-container">
+                    <nav style="margin-bottom: 2rem">
+                        <a
+                            href="kos-list.html"
+                            style="color: var(--primary); font-weight: 500"
+                            >← Kembali ke Daftar Kos</a
+                        >
+                    </nav>
+                    <div class="section-header" style="margin-bottom: 2rem">
+                        <h1 class="section-title">Booking Kos</h1>
+                        <p class="section-subtitle">
+                            Lengkapi informasi pemesanan Anda
+                        </p>
+                    </div>
+                    <div id="bookingAlert"></div>
+                    <div class="booking-layout">
+                        <div class="booking-main">
+                            <div class="booking-card">
+                                <h2 class="booking-card-title">
+                                    Kos yang Dipilih
+                                </h2>
+                                <div id="kosPreview">
+                                    <p
+                                        style="
+                                            text-align: center;
+                                            padding: 2rem;
+                                            color: var(--gray-500);
+                                        "
+                                    >
+                                        Memuat informasi kos...
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="booking-card">
+                                <h2 class="booking-card-title">
+                                    Detail Pemesanan
+                                </h2>
+                                <form id="bookingForm" novalidate>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label
+                                                class="form-label"
+                                                for="booking_date"
+                                                >Tanggal Masuk *</label
+                                            ><input
+                                                class="form-input"
+                                                type="date"
+                                                id="booking_date"
+                                                name="booking_date"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="form-group">
+                                            <label
+                                                class="form-label"
+                                                for="duration"
+                                                >Durasi Sewa *</label
+                                            ><select
+                                                class="form-input"
+                                                id="duration"
+                                                name="duration"
+                                                required
+                                            >
+                                                <option value="">
+                                                    Pilih Durasi
+                                                </option>
+                                                <option value="1">
+                                                    1 Bulan
+                                                </option>
+                                                <option value="3">
+                                                    3 Bulan
+                                                </option>
+                                                <option value="6">
+                                                    6 Bulan
+                                                </option>
+                                                <option value="12">
+                                                    12 Bulan
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label
+                                            class="form-label"
+                                            for="metode_bayar"
+                                            >Metode Pembayaran *</label
+                                        >
+                                        <select
+                                            class="form-input"
+                                            id="metode_bayar"
+                                            name="metode_bayar"
+                                            required
+                                        >
+                                            <option value="transfer">
+                                                Transfer Bank
+                                            </option>
+                                            <option value="ewallet">
+                                                E-Wallet
+                                            </option>
+                                            <option value="cash">Cash</option>
+                                        </select>
+                                    </div>
+                                    <button
+                                        type="submit"
+                                        class="btn-primary"
+                                        style="
+                                            width: 100%;
+                                            padding: 1rem;
+                                            margin-top: 1.5rem;
+                                        "
+                                    >
+                                        Konfirmasi Pemesanan
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="booking-summary">
+                            <div class="booking-card">
+                                <h2 class="booking-card-title">Ringkasan</h2>
+                                <div class="summary-row">
+                                    <span class="summary-label">Nama Kos</span
+                                    ><span
+                                        class="summary-value"
+                                        id="summaryKosName"
+                                        >-</span
+                                    >
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Lokasi</span
+                                    ><span
+                                        class="summary-value"
+                                        id="summaryLocation"
+                                        >-</span
+                                    >
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label"
+                                        >Harga/Bulan</span
+                                    ><span
+                                        class="summary-value"
+                                        id="summaryPrice"
+                                        >-</span
+                                    >
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Durasi</span
+                                    ><span
+                                        class="summary-value"
+                                        id="summaryDuration"
+                                        >-</span
+                                    >
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Total</span
+                                    ><span
+                                        class="summary-total"
+                                        id="summaryTotal"
+                                        >Rp 0</span
+                                    >
+                                </div>
+                            </div>
+                            <!-- Estimasi Biaya Hidup -->
+                            <div class="booking-card" style="margin-top: 1rem">
+                                <h2 class="booking-card-title">
+                                    Estimasi Biaya Hidup / Bulan
+                                </h2>
+                                <div id="estimasiBiaya">
+                                    <div class="summary-row">
+                                        <span class="summary-label"
+                                            >Harga Kos</span
+                                        ><span class="summary-value" id="estKos"
+                                            >-</span
+                                        >
+                                    </div>
+                                    <div class="summary-row">
+                                        <span class="summary-label"
+                                            >Listrik</span
+                                        ><span
+                                            class="summary-value"
+                                            id="estListrik"
+                                            >Rp 150.000</span
+                                        >
+                                    </div>
+                                    <div class="summary-row">
+                                        <span class="summary-label">Air</span
+                                        ><span class="summary-value" id="estAir"
+                                            >Rp 75.000</span
+                                        >
+                                    </div>
+                                    <div class="summary-row">
+                                        <span class="summary-label"
+                                            >Internet</span
+                                        ><span
+                                            class="summary-value"
+                                            id="estInternet"
+                                            >Rp 100.000</span
+                                        >
+                                    </div>
+                                    <div class="summary-row">
+                                        <span
+                                            class="summary-label"
+                                            style="
+                                                font-weight: 700;
+                                                color: var(--primary);
+                                            "
+                                            >Total / Bulan</span
+                                        ><span
+                                            class="summary-total"
+                                            id="estTotal"
+                                            >-</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-bottom">
+                    <p>&copy; 2026 GoletKos. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/utils.ts"></script>
+        <script src="js/api.ts"></script>
+        <script src="js/auth.ts"></script>
+        <script src="js/kos.ts"></script>
+        <script src="js/booking.ts"></script>
+    </body>
+</html>

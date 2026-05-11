@@ -1,3 +1,9 @@
+// @ts-nocheck
+/**
+ * frontend/js/kos.ts
+ * TEKNIK: Code Reuse — kos list, detail, compare selection
+ */
+
 function getKosPrice(kos) {
     // harga_min from the query or from kamar_kos
     if (kos.harga_min) return Number(kos.harga_min);
