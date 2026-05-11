@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist — GoletKos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/search.png" type="image/png">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="GoletKos Logo"><span class="navbar-brand-text">GoletKos</span></a>
+      <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
+      <div class="navbar-menu" id="navbarMenu">
+        <ul class="navbar-links">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="kos-list.html" class="nav-link">Cari Kos</a></li>
+          <li><a href="compare.html" class="nav-link">Bandingkan</a></li>
+          </ul><div style="display:flex;gap:0.5rem;"><a href="login.html" class="btn-outline" style="padding:0.5rem 1.25rem;">Masuk</a><a href="register.html" class="btn-primary" style="padding:0.5rem 1.25rem;">Daftar</a></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="section-container">
+      <div class="section-header"><h1 class="section-title">Wishlist Saya</h1><p class="section-subtitle">Kos yang Anda simpan</p></div>
+      <div id="wishlistContent" class="kos-grid">
+        <p style="grid-column:1/-1;text-align:center;color:var(--gray-500);">Memuat wishlist...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="footer-container"><div class="footer-bottom"><p>&copy; 2026 GoletKos. All rights reserved.</p></div></div></footer>
+
+  <script src="js/utils.ts"></script>
+  <script src="js/api.ts"></script>
+  <script src="js/auth.ts"></script>
+  <script src="js/wishlist.ts"></script>
+</body>
+</html>
+
+
