@@ -1,83 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cari Kos — GoletKos</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="images/search.png" type="image/png">
-</head>
-<body>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="GoletKos Logo"><span class="navbar-brand-text">GoletKos</span></a>
-      <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">☰</button>
-      <div class="navbar-menu" id="navbarMenu">
-        <ul class="navbar-links">
-          <li><a href="index.html" class="nav-link">Beranda</a></li>
-          <li><a href="kos-list.html" class="nav-link active">Cari Kos</a></li>
-          <li><a href="compare.html" class="nav-link">Bandingkan</a></li>
-          </ul><div style="display:flex;gap:0.5rem;"><a href="login.html" class="btn-outline" style="padding:0.5rem 1.25rem;">Masuk</a><a href="register.html" class="btn-primary" style="padding:0.5rem 1.25rem;">Daftar</a></div>
-      </div>
-    </div>
-  </nav>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cari Kos — GoletKos</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="icon" href="images/search.png" type="image/png" />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="index.html" class="navbar-brand"
+                    ><img src="images/logo.png" alt="GoletKos Logo" /><span
+                        class="navbar-brand-text"
+                        >GoletKos</span
+                    ></a
+                >
+                <button
+                    class="navbar-toggle"
+                    id="navbarToggle"
+                    aria-label="Toggle navigation"
+                >
+                    ☰
+                </button>
+                <div class="navbar-menu" id="navbarMenu">
+                    <ul class="navbar-links">
+                        <li>
+                            <a href="index.html" class="nav-link">Beranda</a>
+                        </li>
+                        <li>
+                            <a href="kos-list.html" class="nav-link active"
+                                >Cari Kos</a
+                            >
+                        </li>
+                        <li>
+                            <a href="compare.html" class="nav-link"
+                                >Bandingkan</a
+                            >
+                        </li>
+                    </ul>
+                    <div style="display: flex; gap: 0.5rem">
+                        <a
+                            href="login.html"
+                            class="btn-outline"
+                            style="padding: 0.5rem 1.25rem"
+                            >Masuk</a
+                        ><a
+                            href="register.html"
+                            class="btn-primary"
+                            style="padding: 0.5rem 1.25rem"
+                            >Daftar</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-  <main class="section">
-    <div class="section-container">
-      <div class="section-header"><h1 class="section-title">Cari Kos</h1><p class="section-subtitle">Temukan kos yang sesuai dengan kebutuhan Anda</p></div>
-      <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:1.5rem;margin-bottom:2rem;">
-        <form id="filterForm" style="display:grid;grid-template-columns:1fr 1fr auto;gap:1rem;align-items:end;">
-          <div class="form-group">
-            <label class="form-label" for="location">Lokasi</label>
-            <select class="form-input" id="location" name="location">
-              <option value="">Semua Lokasi</option>
-              <option value="Bandung">Bandung</option>
-              <option value="Jakarta Selatan">Jakarta Selatan</option>
-              <option value="Yogyakarta">Yogyakarta</option>
-              <option value="Surabaya">Surabaya</option>
-              <option value="Malang">Malang</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="maxPrice">Harga Maksimal</label>
-            <select class="form-input" id="maxPrice" name="maxPrice">
-              <option value="">Semua Harga</option>
-              <option value="500000">≤ Rp 500.000</option>
-              <option value="1000000">≤ Rp 1.000.000</option>
-              <option value="1500000">≤ Rp 1.500.000</option>
-              <option value="2000000">≤ Rp 2.000.000</option>
-            </select>
-          </div>
-          <div style="display:flex;gap:0.5rem;">
-            <button type="submit" class="btn-search">Cari</button>
-            <button type="reset" class="btn-outline" style="padding:0.75rem 1.5rem;">Reset</button>
-          </div>
-        </form>
-      </div>
-      <div id="kosList" class="kos-grid"><p style="grid-column:1/-1;text-align:center;color:var(--gray-500);">Memuat data kos...</p></div>
-      <div id="emptyState" style="display:none;text-align:center;padding:3rem 0;"><p style="color:var(--gray-500);">Tidak ada kos ditemukan.</p></div>
-    </div>
-  </main>
+        <main class="section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h1 class="section-title">Cari Kos</h1>
+                    <p class="section-subtitle">
+                        Temukan kos yang sesuai dengan kebutuhan Anda
+                    </p>
+                </div>
+                <div
+                    style="
+                        background: var(--white);
+                        border: 1px solid var(--gray-200);
+                        border-radius: 8px;
+                        padding: 1.5rem;
+                        margin-bottom: 2rem;
+                    "
+                >
+                    <form
+                        id="filterForm"
+                        style="
+                            display: grid;
+                            grid-template-columns: 1fr 1fr auto;
+                            gap: 1rem;
+                            align-items: end;
+                        "
+                    >
+                        <div class="form-group">
+                            <label class="form-label" for="location"
+                                >Lokasi</label
+                            >
+                            <select
+                                class="form-input"
+                                id="location"
+                                name="location"
+                            >
+                                <option value="">Semua Lokasi</option>
+                                <option value="Bandung">Bandung</option>
+                                <option value="Jakarta Selatan">
+                                    Jakarta Selatan
+                                </option>
+                                <option value="Yogyakarta">Yogyakarta</option>
+                                <option value="Surabaya">Surabaya</option>
+                                <option value="Malang">Malang</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="maxPrice"
+                                >Harga Maksimal</label
+                            >
+                            <select
+                                class="form-input"
+                                id="maxPrice"
+                                name="maxPrice"
+                            >
+                                <option value="">Semua Harga</option>
+                                <option value="500000">≤ Rp 500.000</option>
+                                <option value="1000000">≤ Rp 1.000.000</option>
+                                <option value="1500000">≤ Rp 1.500.000</option>
+                                <option value="2000000">≤ Rp 2.000.000</option>
+                            </select>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem">
+                            <button type="submit" class="btn-search">
+                                Cari
+                            </button>
+                            <button
+                                type="reset"
+                                class="btn-outline"
+                                style="padding: 0.75rem 1.5rem"
+                            >
+                                Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div id="kosList" class="kos-grid">
+                    <p
+                        style="
+                            grid-column: 1/-1;
+                            text-align: center;
+                            color: var(--gray-500);
+                        "
+                    >
+                        Memuat data kos...
+                    </p>
+                </div>
+                <div
+                    id="emptyState"
+                    style="display: none; text-align: center; padding: 3rem 0"
+                >
+                    <p style="color: var(--gray-500)">
+                        Tidak ada kos ditemukan.
+                    </p>
+                </div>
+            </div>
+        </main>
 
-  <div id="compareBar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:var(--primary);color:var(--white);padding:1rem;z-index:999;">
-    <div style="max-width:var(--container-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;">
-      <span id="compareBarText"></span>
-      <div style="display:flex;gap:0.75rem;">
-        <button id="btnClearCompare" class="btn-outline" style="background:transparent;color:var(--white);border-color:var(--white);padding:0.5rem 1rem;">Hapus</button>
-        <button id="btnGoCompare" class="btn-primary" style="background:var(--white);color:var(--primary);padding:0.5rem 1.5rem;">Bandingkan</button>
-      </div>
-    </div>
-  </div>
+        <div
+            id="compareBar"
+            style="
+                display: none;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                color: var(--white);
+                padding: 1rem;
+                z-index: 999;
+            "
+        >
+            <div
+                style="
+                    max-width: var(--container-width);
+                    margin: 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0 1.5rem;
+                "
+            >
+                <span id="compareBarText"></span>
+                <div style="display: flex; gap: 0.75rem">
+                    <button
+                        id="btnClearCompare"
+                        class="btn-outline"
+                        style="
+                            background: transparent;
+                            color: var(--white);
+                            border-color: var(--white);
+                            padding: 0.5rem 1rem;
+                        "
+                    >
+                        Hapus
+                    </button>
+                    <button
+                        id="btnGoCompare"
+                        class="btn-primary"
+                        style="
+                            background: var(--white);
+                            color: var(--primary);
+                            padding: 0.5rem 1.5rem;
+                        "
+                    >
+                        Bandingkan
+                    </button>
+                </div>
+            </div>
+        </div>
 
-  <footer class="footer">
-    <div class="footer-container"><div class="footer-bottom"><p>&copy; 2026 GoletKos. All rights reserved.</p></div></div>
-  </footer>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-bottom">
+                    <p>&copy; 2026 GoletKos. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
 
-  <script src="js/utils.ts"></script>
-  <script src="js/api.ts"></script>
-  <script src="js/auth.ts"></script>
-  <script src="js/kos.ts"></script>
-</body>
+        <script src="js/utils.ts"></script>
+        <script src="js/api.ts"></script>
+        <script src="js/auth.ts"></script>
+        <script src="js/kos.ts"></script>
+    </body>
 </html>
-
-
