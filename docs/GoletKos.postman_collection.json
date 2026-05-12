@@ -1,0 +1,167 @@
+{
+  "info": {
+    "name": "GoletKos API",
+    "description": "Collection untuk testing API GoletKos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3000" },
+    { "key": "token", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/auth/register",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nama\":\"Test User\",\"email\":\"davizganteng@example.com\",\"password\":\"password123\",\"no_telepon\":\"081234567890\"}"
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/auth/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\":\"ahmad@example.com\",\"password\":\"password123\"}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Kos",
+      "item": [
+        {
+          "name": "Get All Kos",
+          "request": { "method": "GET", "url": "{{base_url}}/api/kos" }
+        },
+        {
+          "name": "Get Kos by Kota",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/kos?location=Bandung"
+          }
+        },
+        {
+          "name": "Get Kos by Max Price",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/kos?maxPrice=1000000"
+          }
+        },
+        {
+          "name": "Get Kos Detail",
+          "request": { "method": "GET", "url": "{{base_url}}/api/kos/1" }
+        }
+      ]
+    },
+    {
+      "name": "Compare",
+      "item": [
+        {
+          "name": "Compare 2 Kos",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/compare",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"kosIds\":[1,2]}" }
+          }
+        },
+        {
+          "name": "Compare 3 Kos",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/compare",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\"kosIds\":[1,2,3]}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Booking (Pemesanan)",
+      "item": [
+        {
+          "name": "Create Pemesanan",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/booking",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"kos_id\":1,\"tanggal_masuk\":\"2025-07-01\",\"durasi_bulan\":3,\"metode_bayar\":\"transfer\"}"
+            }
+          }
+        },
+        {
+          "name": "Get Riwayat Pemesanan",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/booking/history",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Features",
+      "item": [
+        {
+          "name": "Estimasi Biaya Hidup",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/estimation?price=1000000"
+          }
+        },
+        {
+          "name": "Rekomendasi Kos",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/recommendation?budget=1500000&location=Bandung"
+          }
+        },
+        {
+          "name": "Get Wishlist",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/wishlist",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }]
+          }
+        },
+        {
+          "name": "Add to Wishlist",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/wishlist",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\"kos_id\":1}" }
+          }
+        },
+        {
+          "name": "Remove from Wishlist",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/wishlist/1",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }]
+          }
+        }
+      ]
+    }
+  ]
+}
