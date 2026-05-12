@@ -27,9 +27,9 @@ export function isValidTransition(from: BookingStatus, to: BookingStatus): boole
 }
 
 export function transitionBooking(current: BookingStatus, next: BookingStatus): { success: boolean; message: string } {
-  if (current === next) return { success: false, message: Status sudah '${current}' };
+  if (current === next) return { success: false, message: `Status sudah '${current}'` };
   if (!isValidTransition(current, next)) {
-    return { success: false, message: Tidak bisa mengubah status dari '${current}' ke '${next}' };
+    return { success: false, message: `Tidak bisa mengubah status dari '${current}' ke '${next}'` };
   }
-  return { success: true, message: Status berhasil diubah ke '${next}' };
+  return { success: true, message: `Status berhasil diubah ke '${next}'` };
 }
