@@ -139,7 +139,7 @@ Fitur:
 
 Detail visualisasi hubungan antar entitas database dapat dilihat pada diagram ERD berikut:
 
-![Diagram ERD Database](erd-diagram-database.jpg)
+![Diagram ERD Database](erd_diagram_database.jpg)
 
 ---
 
