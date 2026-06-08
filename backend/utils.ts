@@ -41,6 +41,8 @@ export function validateRegister(data: Record<string, any>): string[] {
 
 export function validatePemesanan(data: Record<string, any>): string[] {
     const errors = validateRequired(data, ['kos_id', 'tanggal_masuk', 'durasi_bulan']);
-    if (data.durasi_bulan && Number(data.durasi_bulan) <= 0) errors.push('Durasi harus lebih dari 0 bulan');
+    if (data.durasi_bulan !== undefined && data.durasi_bulan !== null && data.durasi_bulan !== '' && Number(data.durasi_bulan) <= 0) {
+        errors.push('Durasi harus lebih dari 0 bulan');
+    }
     return errors;
 }
