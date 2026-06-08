@@ -128,19 +128,18 @@ Fitur:
 ### Relasi:
 
 * User dapat melakukan pemesanan kos (1:N)
-* User dapat menyimpan kos ke wishlist (1:N)
-* User dapat memberikan ulasan pada kos (1:N)
-* Kos memiliki banyak kamar (1:N)
-* Setiap kamar memiliki fasilitas (1:1)
-* Pemesanan memiliki satu pembayaran (1:1)
-* Pemesanan dapat memiliki satu ulasan (1:1)
-* Riwayat mencatat pemesanan yang telah selesai
+* User dapat menyimpan kos ke wishlist melalui tabel jembatan (1:N)
+* Kos dapat disimpan ke dalam banyak wishlist oleh user (1:N)
+* Pemesanan dapat memiliki catatan pembayaran (1:N)
+* Pemesanan dapat memiliki catatan ulasan (1:N)
+* Kos memiliki banyak rincian fasilitas di tabel jembatan (1:N)
+* Fasilitas dapat merinci banyak objek kos (1:N)
 
 ### Diagram ERD
 
 Detail visualisasi hubungan antar entitas database dapat dilihat pada diagram ERD berikut:
 
-![Diagram ERD Database](erd-diagram-database.jpeg)
+![Diagram ERD Database](erd-diagram-database.jpg)
 
 ---
 
