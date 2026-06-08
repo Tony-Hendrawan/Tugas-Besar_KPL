@@ -136,6 +136,12 @@ Fitur:
 * Pemesanan dapat memiliki satu ulasan (1:1)
 * Riwayat mencatat pemesanan yang telah selesai
 
+### Diagram ERD
+
+Detail visualisasi hubungan antar entitas database dapat dilihat pada diagram ERD berikut:
+
+![Diagram ERD Database](./assets/erd-diagram-database.jpeg)
+
 ---
 
 ## Teknik Konstruksi Perangkat Lunak
