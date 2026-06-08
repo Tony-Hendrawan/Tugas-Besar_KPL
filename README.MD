@@ -115,26 +115,25 @@ Fitur:
 
 ### Entitas:
 
-* User
+* Users
 * Kos
-* Kamar_Kos
 * Fasilitas
 * Pemesanan
 * Pembayaran
 * Ulasan
-* Riwayat
+* Fasilitas_Milik
 * Wishlist
 
 ### Relasi:
 
-* User dapat melakukan pemesanan kos (1:N)
-* User dapat menyimpan kos ke wishlist (1:N)
-* User dapat memberikan ulasan pada kos (1:N)
-* Kos memiliki banyak kamar (1:N)
-* Setiap kamar memiliki fasilitas (1:1)
+* User dapat melakukan banyak pemesanan kos (1:N)
+* User dapat menyimpan banyak kos ke wishlist (1:N melalui tabel Wishlist)
+* Kos dapat disimpan oleh banyak user ke wishlist (1:N melalui tabel Wishlist)
+* Kos dapat memiliki banyak pemesanan (1:N)
+* User dapat memberikan banyak ulasan melalui pemesanan yang pernah dilakukan (1:N secara tidak langsung)
 * Pemesanan memiliki satu pembayaran (1:1)
 * Pemesanan dapat memiliki satu ulasan (1:1)
-* Riwayat mencatat pemesanan yang telah selesai
+* Kos memiliki banyak fasilitas (M:N) melalui tabel FASILITAS_MILIK.
 
 ---
 
